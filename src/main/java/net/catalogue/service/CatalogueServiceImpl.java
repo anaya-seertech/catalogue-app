@@ -19,18 +19,6 @@ public class CatalogueServiceImpl implements CatalogueService {
 
 	@Override
 	@Transactional
-	public void addApparel(Apparel a) {
-		this.catalogueDAO.addApparel(a);
-	}
-
-	@Override
-	@Transactional
-	public void updateApparel(Apparel a) {
-		this.catalogueDAO.updateApparel(a);
-	}
-
-	@Override
-	@Transactional
 	public List<Apparel> listApparels() {
 		return this.catalogueDAO.listApparels();
 	}
@@ -40,11 +28,4 @@ public class CatalogueServiceImpl implements CatalogueService {
 	public Apparel getApparelById(int id) {
 		return this.catalogueDAO.getApparelById(id);
 	}
-
-	@Override
-	@Transactional
-	public void removeApparel(int id) {
-		this.catalogueDAO.removeApparel(id);
-	}
-
 }

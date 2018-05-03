@@ -1,25 +1,25 @@
 # Catalogue Application
 
 ## Tech Stack
-1. Spring 3 MVC
-2. JSP
-3. Hibernate  3
+1. Spring MVC
+2. Hibernate
+3. JSP
 4. Maven
 5. MySQL
 
 ## Setup MySQL using Terminal
 1. Make sure you have installed and connected to mysql server -- (Installed using Homebrew): `mysql -v -u<username> -p<password>`
 2. Create database: `CREATE DATABASE CATALOGUE;`
-3. Use database: `use CATALOGUE;`
-4. Create Apparel Table:
+3. Use database: `USE CATALOGUE;`
+4. Create Apparels Table:
 ```
 		CREATE TABLE APPARELS
 		(
-		    apparel_id       INT PRIMARY KEY AUTO_INCREMENT,
-		    apparel_name    VARCHAR(30),
-		    apparel_price    INT,
-		    apparel_stock   INT
-		)
+		    id       INT PRIMARY KEY AUTO_INCREMENT,
+		    name    VARCHAR(30),
+		    price    INT,
+		    stock   INT
+		);
 ```
 
 ## Import and Run Project Using Eclipse

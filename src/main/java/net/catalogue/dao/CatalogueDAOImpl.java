@@ -23,19 +23,6 @@ public class CatalogueDAOImpl implements CatalogueDAO {
 		this.sessionFactory = sf;
 	}
 
-	@Override
-	public void addApparel(Apparel a) {
-		Session session = this.sessionFactory.getCurrentSession();
-		session.persist(a);
-		logger.info("Apparel saved successfully, Apparel Details="+a);
-	}
-
-	@Override
-	public void updateApparel(Apparel a) {
-		Session session = this.sessionFactory.getCurrentSession();
-		session.update(a);
-		logger.info("Apparel updated successfully, Apparel Details="+a);
-	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -54,16 +41,6 @@ public class CatalogueDAOImpl implements CatalogueDAO {
 		Apparel a = (Apparel) session.load(Apparel.class, new Integer(id));
 		logger.info("Apparel loaded successfully, Apparel details="+a);
 		return a;
-	}
-
-	@Override
-	public void removeApparel(int id) {
-		Session session = this.sessionFactory.getCurrentSession();
-		Apparel a = (Apparel) session.load(Apparel.class, new Integer(id));
-		if(null != a){
-			session.delete(a);
-		}
-		logger.info("Apparel deleted successfully, apparel details="+a);
 	}
 
 }

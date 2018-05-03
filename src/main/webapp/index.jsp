@@ -1,4 +1,1 @@
-<HTML>
-<body>hello world
-</body>
-</HTML>
+<jsp:forward page="apparels.html"></jsp:forward>

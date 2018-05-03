@@ -12,16 +12,16 @@
 
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
-
+	
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
 		up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
-
+	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
-		in the /WEB-INF/jsp directory -->
+		in the /WEB-INF/views directory -->
 	<beans:bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/jsp/" />
+		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
@@ -34,9 +34,9 @@
 		<beans:property name="password" value="seer" />
 	</beans:bean>
 
-	<!-- Hibernate 3 SessionFactory Bean definition -->
-	<beans:bean id="hibernate3AnnotatedSessionFactory"
-		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+	<!-- Hibernate 4 SessionFactory Bean definition -->
+	<beans:bean id="hibernate4AnnotatedSessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource" />
 		<beans:property name="annotatedClasses">
 			<beans:list>
@@ -53,7 +53,7 @@
 	</beans:bean>
 	
 	<beans:bean id="catalogueDAO" class="net.catalogue.dao.CatalogueDAOImpl">
-		<beans:property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
+		<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
 	</beans:bean>
 	<beans:bean id="catalogueService" class="net.catalogue.service.CatalogueServiceImpl">
 		<beans:property name="catalogueDAO" ref="catalogueDAO"></beans:property>
@@ -62,8 +62,8 @@
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
-	<beans:bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-		<beans:property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
+	<beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
 	</beans:bean>
 
 
