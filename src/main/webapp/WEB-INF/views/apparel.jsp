@@ -5,13 +5,23 @@
 <html>
 <head>
 	<title>Catalogue Application</title>
-	<spring:url value="/resources/css/bulma.css" var="mainCss" />
-	<link href="${mainCss}" rel="stylesheet" />
+	<link href="${pageContext.request.contextPath}/resources/css/bulma.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<h3>Apparels List</h3>
+<br/>
+<h3 class="title is-3">Apparel List</h3>
+<div class="field has-addons">
+  <div class="control">
+    <input class="input" type="text" placeholder="Find apparel">
+  </div>
+  <div class="control">
+    <a class="button is-info">
+      Search
+    </a>
+  </div>
+</div>
 <c:if test="${!empty listApparels}">
-	<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+	<table class="table is-bordered is-striped is-hoverable is-fullwidth">
 		<thead>
 			<tr>
 				<th width="80">Apparel ID</th>
