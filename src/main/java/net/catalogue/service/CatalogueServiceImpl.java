@@ -25,6 +25,12 @@ public class CatalogueServiceImpl implements CatalogueService {
 
 	@Override
 	@Transactional
+	public List<Apparel> getApparelByName(String name) {
+		return this.catalogueDAO.getApparelByName(name);
+	}
+	
+	@Override
+	@Transactional
 	public Apparel getApparelById(int id) {
 		return this.catalogueDAO.getApparelById(id);
 	}

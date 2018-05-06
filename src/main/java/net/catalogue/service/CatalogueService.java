@@ -8,4 +8,5 @@ public interface CatalogueService {
 
 	public List<Apparel> listApparels();
 	public Apparel getApparelById(int id);
+	public List<Apparel> getApparelByName(String name);
 }

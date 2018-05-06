@@ -10,16 +10,16 @@
 <body>
 <br/>
 <h3 class="title is-3">Apparel List</h3>
-<div class="field has-addons">
-  <div class="control">
-    <input class="input" type="text" placeholder="Find apparel">
-  </div>
-  <div class="control">
-    <a class="button is-info">
-      Search
-    </a>
-  </div>
-</div>
+<form method="get" action="<spring:url value="/search"/>">
+	<div class="field has-addons">
+	  <div class="control">
+	    <input class="input" name="searchName" type="text" value="${param.searchName}" placeholder="Find apparel">
+	  </div>
+	  <div class="control">
+	    <button class="button is-link">Search</button>
+	  </div>
+	</div>
+</form>
 <c:if test="${!empty listApparels}">
 	<table class="table is-bordered is-striped is-hoverable is-fullwidth">
 		<thead>
@@ -39,6 +39,23 @@
 					<td>${apparel.stock}</td>
 				</tr>
 			</c:forEach>
+		</tbody>
+	</table>
+</c:if>
+<c:if test="${empty listApparels}">
+	<table class="table is-bordered is-striped is-hoverable is-fullwidth">
+		<thead>
+			<tr>
+				<th width="80">Apparel ID</th>
+				<th width="120">Apparel Name</th>
+				<th width="120">Apparel Price</th>
+				<th width="60">Apparel Stock</th>
+			</tr>
+		</thead>
+		<tbody>		
+			<tr>
+				<td colspan="4"><center><b>Data not found.</b></center></td>
+			</tr>	
 		</tbody>
 	</table>
 </c:if>

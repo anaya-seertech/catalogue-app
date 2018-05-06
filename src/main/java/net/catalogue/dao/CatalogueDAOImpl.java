@@ -2,8 +2,11 @@ package net.catalogue.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -31,6 +34,19 @@ public class CatalogueDAOImpl implements CatalogueDAO {
 		List<Apparel> apparelsList = session.createQuery("from Apparel").list();
 		for(Apparel a : apparelsList){
 			logger.info("Apparel List::"+a);
+		}
+		return apparelsList;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Apparel> getApparelByName(String name) {
+		Session session = this.sessionFactory.getCurrentSession();
+		Criteria c = session.createCriteria(Apparel.class);
+		c.add(Restrictions.ilike("name", "%" + name +"%"));
+		List<Apparel> apparelsList = c.list();
+		for(Apparel a : apparelsList){
+			logger.info("Apparel List Search::"+a);
 		}
 		return apparelsList;
 	}

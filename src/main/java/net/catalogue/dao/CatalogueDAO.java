@@ -8,5 +8,5 @@ public interface CatalogueDAO {
 	
 	public List<Apparel> listApparels();
 	public Apparel getApparelById(int id);
-	
+	public List<Apparel> getApparelByName(String name);
 }
